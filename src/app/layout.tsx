@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 
 import { Providers } from "@/components/providers"
-import { SiteHeader } from "@/components/site-header"
 import "./globals.css"
 
 const inter = Inter({
@@ -27,7 +26,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="nb" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="flex min-h-full flex-col">
         <Providers>
-          <SiteHeader />
           <main className="flex-1">{children}</main>
         </Providers>
       </body>
