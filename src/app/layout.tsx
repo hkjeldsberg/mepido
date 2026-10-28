@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
+import { Nunito } from "next/font/google"
 
 import { Providers } from "@/components/providers"
 import "./globals.css"
 
-const inter = Inter({
+const nunito = Nunito({
   variable: "--font-sans",
   subsets: ["latin"],
 })
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#faf9f7" },
-    { media: "(prefers-color-scheme: dark)", color: "#1a1917" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#12121a" },
   ],
 }
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="nb" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="nb" className={`${nunito.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="flex min-h-full flex-col">
         <Providers>
           <main className="flex-1">{children}</main>

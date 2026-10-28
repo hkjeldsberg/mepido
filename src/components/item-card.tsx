@@ -55,9 +55,9 @@ export function ItemCard({ item, layoutEnabled, pending, onOpen, onEdit, onDelet
       <motion.div
         layoutId={layoutEnabled ? `item-${item.id}` : undefined}
         whileHover={isDragging ? undefined : { scale: 1.02, y: -2 }}
-        style={{ borderRadius: 24 }}
+        style={{ borderRadius: 32 }}
         className={cn(
-          "group relative flex h-full flex-col overflow-hidden bg-card shadow-soft transition-shadow hover:shadow-lift",
+          "group relative flex h-full flex-col overflow-hidden bg-card shadow-soft ring-1 ring-foreground/5 transition-shadow hover:shadow-lift",
           isDragging && "shadow-float",
           pending && "pointer-events-none opacity-60"
         )}
@@ -66,7 +66,7 @@ export function ItemCard({ item, layoutEnabled, pending, onOpen, onEdit, onDelet
           type="button"
           onClick={onOpen}
           className="flex h-full flex-col text-left outline-none focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:ring-inset"
-          style={{ borderRadius: 24 }}
+          style={{ borderRadius: 32 }}
         >
           <div className="relative aspect-square w-full overflow-hidden bg-muted">
             <ItemImage
@@ -76,13 +76,13 @@ export function ItemCard({ item, layoutEnabled, pending, onOpen, onEdit, onDelet
             />
           </div>
           <div className="flex flex-1 flex-col gap-1 p-4">
-            <h3 className="line-clamp-2 leading-snug font-medium">{item.title}</h3>
+            <h3 className="line-clamp-2 leading-snug font-extrabold">{item.title}</h3>
             <div className="mt-auto flex items-center justify-between gap-2 pt-1">
-              <span className="truncate text-sm font-semibold tabular-nums">
-                {price ?? <span className="font-normal text-muted-foreground">Ingen pris</span>}
+              <span className="truncate font-black text-konfetti-blue tabular-nums">
+                {price ?? <span className="text-sm font-semibold text-muted-foreground">Ingen pris</span>}
               </span>
               {item.quantity > 1 && (
-                <span className="shrink-0 rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground tabular-nums">
+                <span className="shrink-0 rounded-full bg-tile-pink px-2.5 py-0.5 text-xs font-bold text-tile-pink-fg tabular-nums">
                   {item.quantity} stk
                 </span>
               )}

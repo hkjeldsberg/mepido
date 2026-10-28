@@ -31,20 +31,22 @@ export function ListHeader({ list, itemCount }: { list: Wishlist; itemCount: num
   const [pending, startTransition] = useTransition()
 
   return (
-    <header className="mb-10 flex flex-col gap-6 sm:mb-14 md:flex-row md:items-end md:justify-between">
+    <header className="mb-10 flex flex-col gap-6 pt-2 sm:mb-14 md:flex-row md:items-end md:justify-between">
       <div className="min-w-0">
         <Link
           href="/"
-          className="mb-3 inline-flex items-center gap-1 rounded-md text-sm text-muted-foreground transition outline-none hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50"
+          className="mb-6 inline-flex items-center gap-1 rounded-md font-black text-konfetti-blue transition outline-none hover:opacity-80 focus-visible:ring-3 focus-visible:ring-ring/50 sm:mb-10"
         >
-          <ChevronLeft className="size-4" />
+          <ChevronLeft className="size-5" strokeWidth={3} />
           Mine Ønskelister
         </Link>
-        <h1 className="text-4xl font-semibold break-words sm:text-6xl">{list.title}</h1>
+        <h1 className="text-5xl leading-[0.95] font-black break-words sm:text-7xl">{list.title}</h1>
         {list.description && (
-          <p className="mt-3 max-w-2xl text-lg whitespace-pre-line text-muted-foreground">{list.description}</p>
+          <p className="mt-4 max-w-2xl text-lg font-semibold whitespace-pre-line text-muted-foreground">{list.description}</p>
         )}
-        <p className="mt-3 text-sm text-muted-foreground">{pluralItems(itemCount)}</p>
+        <p className="mt-4 w-fit rounded-full bg-tile-lilac px-3.5 py-1 text-sm font-bold text-tile-lilac-fg">
+          {pluralItems(itemCount)}
+        </p>
       </div>
 
       <div className="flex shrink-0 items-center gap-2">
@@ -96,7 +98,7 @@ export function ListHeader({ list, itemCount }: { list: Wishlist; itemCount: num
 
       <GlassModal open={editing} onClose={() => setEditing(false)} label="Rediger liste">
         <div className="p-6 sm:p-8">
-          <h2 className="mb-6 text-2xl font-semibold">Rediger liste</h2>
+          <h2 className="mb-6 text-3xl font-black">Rediger liste</h2>
           <WishlistForm
             initial={{ title: list.title, description: list.description, cover_image_url: list.cover_image_url }}
             submitLabel={pending ? "Lagrer…" : "Lagre"}

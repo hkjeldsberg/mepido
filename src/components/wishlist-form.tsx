@@ -68,7 +68,7 @@ export function WishlistForm({
         onUploadingChange={setUploading}
       />
       <div className="flex justify-end">
-        <Button type="submit" size="lg" className="px-5" disabled={pending || uploading || !values.title.trim()}>
+        <Button type="submit" size="lg" className="h-10 rounded-full px-6 font-bold" disabled={pending || uploading || !values.title.trim()}>
           {submitLabel}
         </Button>
       </div>

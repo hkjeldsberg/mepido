@@ -1,30 +1,37 @@
 import { Suspense } from "react"
+import Link from "next/link"
 
 import { GridSkeleton } from "@/components/grid-skeleton"
+import { Konfetti } from "@/components/konfetti"
 import { WishlistGrid } from "@/components/wishlist-grid"
 import { getWishlists } from "@/lib/data"
 
 export default function Home() {
   return (
-    <div className="relative isolate overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem] [mask-image:linear-gradient(to_bottom,black_45%,transparent)]"
-      >
-        <div className="absolute -top-32 left-[8%] size-[28rem] rounded-full bg-rose-300/30 blur-3xl dark:bg-rose-500/15" />
-        <div className="absolute -top-20 right-[6%] size-[30rem] rounded-full bg-amber-200/40 blur-3xl dark:bg-amber-500/10" />
-        <div className="absolute top-24 left-1/2 size-[24rem] -translate-x-1/2 rounded-full bg-sky-200/40 blur-3xl dark:bg-sky-500/10" />
-      </div>
+    <>
+      <header className="relative isolate">
+        <Konfetti />
+        <div className="mx-auto max-w-7xl px-5 pt-10 pb-10 sm:px-8 sm:pt-16 sm:pb-14">
+          <Link
+            href="/"
+            className="rounded-md text-xl font-black tracking-tight text-konfetti-blue outline-none focus-visible:ring-3 focus-visible:ring-ring/50 sm:text-2xl"
+          >
+            me pido!
+          </Link>
+          <h1 className="mt-8 text-[3.25rem] leading-[0.95] font-black sm:mt-12 sm:text-8xl">
+            Mine
+            <br />
+            Ønskelister
+          </h1>
+        </div>
+      </header>
 
-      <section aria-labelledby="page-title" className="mx-auto max-w-7xl px-4 pt-12 pb-24 sm:px-8 sm:pt-20">
-        <h1 id="page-title" className="sr-only">
-          Mine Ønskelister
-        </h1>
+      <section aria-label="Ønskelister" className="mx-auto max-w-7xl px-5 pb-24 sm:px-8">
         <Suspense fallback={<GridSkeleton />}>
           <Wishlists />
         </Suspense>
       </section>
-    </div>
+    </>
   )
 }
 

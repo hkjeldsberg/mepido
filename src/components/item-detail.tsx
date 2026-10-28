@@ -46,7 +46,7 @@ export function ItemDetail({ item, editing, onEditingChange, onSave, onDelete, o
       <div className="flex flex-col p-6 sm:p-8">
         {editing ? (
           <>
-            <h2 className="mb-6 pr-10 text-2xl font-semibold">Rediger ønske</h2>
+            <h2 className="mb-6 pr-10 text-3xl font-black">Rediger ønske</h2>
             <ItemForm
               initial={{
                 title: item.title,
@@ -77,10 +77,12 @@ export function ItemDetail({ item, editing, onEditingChange, onSave, onDelete, o
               {item.is_starred ? "Mest ønsket" : "Merk som mest ønsket"}
             </button>
 
-            <h2 className="pr-10 text-3xl font-semibold sm:text-4xl">{item.title}</h2>
+            <h2 className="pr-10 text-3xl leading-tight font-black sm:text-4xl">{item.title}</h2>
 
             <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="text-2xl font-semibold tabular-nums">{price ?? "Ingen pris oppgitt"}</span>
+              <span className={cn("text-2xl font-black tabular-nums", price ? "text-konfetti-blue" : "text-muted-foreground")}>
+                {price ?? "Ingen pris oppgitt"}
+              </span>
               {item.quantity > 1 && (
                 <span className="text-sm text-muted-foreground">Ønsker meg {item.quantity} stk</span>
               )}

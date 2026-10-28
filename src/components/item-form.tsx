@@ -158,11 +158,11 @@ export function ItemForm({ initial = EMPTY_ITEM, submitLabel, onSubmit, onCancel
 
       <div className="flex justify-end gap-2">
         {onCancel && (
-          <Button type="button" variant="ghost" size="lg" onClick={onCancel}>
+          <Button type="button" variant="ghost" size="lg" className="h-10 rounded-full px-5 font-bold" onClick={onCancel}>
             Avbryt
           </Button>
         )}
-        <Button type="submit" size="lg" disabled={uploading} className="px-5">
+        <Button type="submit" size="lg" disabled={uploading} className="h-10 rounded-full px-6 font-bold">
           {submitLabel}
         </Button>
       </div>

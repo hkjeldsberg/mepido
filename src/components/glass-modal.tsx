@@ -111,7 +111,7 @@ function ModalBody({ onClose, layoutId, label, className, children }: Omit<Glass
           "glass-strong relative z-10 flex max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-3xl shadow-float outline-none sm:max-h-[88dvh] sm:max-w-lg sm:rounded-3xl",
           className
         )}
-        style={{ borderRadius: 24 }}
+        style={{ borderRadius: 32 }}
         initial={layoutId ? undefined : { opacity: 0, y: 24, scale: 0.97 }}
         animate={layoutId ? undefined : { opacity: 1, y: 0, scale: 1 }}
         exit={layoutId ? { opacity: 0, transition: { duration: 0.15 } } : { opacity: 0, y: 16, scale: 0.98 }}
